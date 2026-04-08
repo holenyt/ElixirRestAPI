@@ -8,7 +8,8 @@ defmodule DesignApi.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      DesignApi.Repository
+      DesignApi.Repository,
+      {Plug.Cowboy, scheme: :http, plug: DesignApi.Router, options: [port: 4000]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

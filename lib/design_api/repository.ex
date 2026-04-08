@@ -2,6 +2,7 @@ defmodule DesignApi.Repository do
   use GenServer
 
   defmodule User do
+    @derive {Jason.Encoder, only: [:id, :name, :age]}
     defstruct [:id, :name, :age]
   end
 
